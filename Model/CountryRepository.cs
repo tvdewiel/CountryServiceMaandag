@@ -30,12 +30,10 @@
         {
             return _countries.Values.Where(x => x.Continent == continent);
         }
-
         public IEnumerable<Country> GetAll(string continent, string capital)
         {
             return _countries.Values.Where(x => x.Continent == continent && x.Capital==capital);
         }
-
         public Country GetCountry(int id)
         {
 
@@ -45,7 +43,6 @@
                     throw new CountryException("country does not exists");
    
         }
-
         public void RemoveCountry(Country country)
         {
             if (_countries.ContainsKey(country.Id))
@@ -53,7 +50,6 @@
             else
                 throw new CountryException("country does not exists");
         }
-
         public void UpdateCountry(Country country)
         {
             if (_countries.ContainsKey(country.Id))
@@ -61,5 +57,7 @@
             else
                 throw new CountryException("country does not exists");
         }
+        public bool ExistsCountry(int id)
+        { return _countries.ContainsKey(id); }
     }
 }
